@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @author Stan Bordeaux
+ * @copyright 2010
+ */
+
+if (isset($_POST['submit']))
+{
+    $url_address	= $_POST['url_address'];
+    $url_link_txt = $_POST['url_link_txt'];
+    $category = $_POST['category'];
+	$now = mktime();
+}
+echo $now.'<br/>';
+//open the file for writing
+$fh = fopen("url_links.txt","a");
+
+
+
+//assemble the data into a line variable
+$data = $url_address . ", " . $url_link_txt . ", " . $category . "\n";
+
+// write the data to the file
+fwrite($fh, $data);
+
+//close the file
+fclose($fh);
+?>
+<!DOCTYPE html>
+<head>
+<meta charset='utf-8'>
+<title></title>
+</head>
+<body>
+<h1>Add Web Links Here</h1>
+<form action='' method='post'>
+<p><label for='url_address'>Enter the web address here: &nbsp;http://www.<input type='text' name='url_address' id='url_address'></p>
+<p><label for='url_link_txt'>Enter the Link text here: &nbsp;<input type='text' name='url_link_txt' id='url_link_txt'></p>
+<p><label for='category'>Choose a category:&nbsp; <select name='category' id='category'>
+<option value='web_dev'>Web Development</option>
+<option value='news'>News</option>
+<option value='sports'>Sports</option>
+</select></p>
+<p><input type='submit' name='submit' id='submit' value='Add Link'></p>
+</body>
