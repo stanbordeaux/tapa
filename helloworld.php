@@ -4,7 +4,7 @@
 Plugin Name: Hello World
 Description: Echos "Hello World" in footer of theme
 Version: 1.0
-Author: Chris Cagle
+Author: Stan Bordeaux
 Author URI: http://www.cagintranet.com/
 */
 
